@@ -46,7 +46,7 @@ def test(test_loader, model, cfg):
         sys.stdout.flush()
 
         # prepare input
-        data['imgs'] = data['imgs'].cuda()
+        data['imgs'] = data['imgs']# .cuda()
         data.update(dict(
             cfg=cfg
         ))
@@ -83,7 +83,7 @@ def main(args):
     )
     # model
     model = build_model(cfg.model)
-    model = model.cuda()
+    model = model#.cuda()
 
     if args.checkpoint is not None:
         if os.path.isfile(args.checkpoint):
@@ -110,8 +110,8 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Hyperparams')
-    parser.add_argument('config', help='config file path')
-    parser.add_argument('checkpoint', nargs='?', type=str, default=None)
+    parser.add_argument('--config', help='config file path', default='config/psenet/psenet_r50_ic15_736.py')
+    parser.add_argument('--checkpoint', nargs='?', type=str, default=None)
     parser.add_argument('--report_speed', action='store_true')
     args = parser.parse_args()
 
