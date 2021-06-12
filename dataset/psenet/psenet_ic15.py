@@ -11,12 +11,12 @@ import math
 import mmcv
 import string
 
-ic15_root_dir = './data/ICDAR2015/Challenge4/'
+ic15_root_dir = '/Volumes/Data/data_sets/'
 ic15_train_data_dir = ic15_root_dir + 'ch4_training_images/'
 ic15_train_gt_dir = ic15_root_dir + 'ch4_training_localization_transcription_gt/'
 
 ic15_test_data_dir = ic15_root_dir + 'ch4_test_images/'
-ic15_test_gt_dir = ic15_root_dir + 'ch4_test_localization_transcription_gt/'
+ic15_test_gt_dir = ic15_root_dir + 'Challenge4_Test_Task1_GT/'
 
 
 def get_img(img_path, read_type='pil'):

@@ -162,7 +162,7 @@ def main(args):
 
     # model
     model = build_model(cfg.model)
-    model = torch.nn.DataParallel(model).cuda()
+    model = torch.nn.DataParallel(model)#.cuda()
 
     # Check if model has custom optimizer / loss
     if hasattr(model.module, 'optimizer'):
@@ -205,7 +205,7 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Hyperparams')
-    parser.add_argument('config', help='config file path')
+    parser.add_argument('--config', help='config file path', default='config/psenet/psenet_r50_ic15_736.py')
     parser.add_argument('--checkpoint', nargs='?', type=str, default=None)
     parser.add_argument('--resume', nargs='?', type=str, default=None)
     args = parser.parse_args()
